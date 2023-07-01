@@ -93,7 +93,9 @@ Command to create a variable date
 datavariavel = spark.sql(“select to_date(date_trunc(‘MM’, add_months(current_date(), -10)))”).collect() [0][0]
 print(datavariavel)
 ```
-  - How to use in the spark.sql command:
+  How to use in the spark.sql command:
+    
+  Write "f" before the quotation marks from the spark.sql
 ```sql
 spark.sql(f"""
 select
@@ -104,6 +106,22 @@ where
   DtContrato >= ‘{datavariavel}’
 """).createOrReplaceTempView("TblFiltered")
 ```
+  - Example 2:
+    
+    Some possibilities to find variable date
+```python
+from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
+#Buscar o dia atual
+  dt_dia = datetime.now() - timedelta (days=1)
+#Buscar o primeiro dia do mês
+  primeiro_dia_mes = datetime.strptime (dt_dia.strftime (‘%Y-%m-01'), ‘%Y-%m-%d’)
+#Buscar último dia do mês
+  ultimo_dia_mes = (primeiro_dia_mes + relativedelta (months = 1)) - timedelta (days = 1)
+#Formatar qualquer uma das variáveis para o formato: YYYY-mm-dd
+  primeiro_dia_mês = primeiro_dia_mes.strftime(“%Y-%m-%d”)
+```
+
 ###### [⏪](README.md#Index)
 <p>  <br>
   </p>
