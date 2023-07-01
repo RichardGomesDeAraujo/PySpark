@@ -14,7 +14,7 @@
 <p>  <br>
   </p>
   
-# Índice
+# Index
 - [**Table Visualization**](README.md#Table-Visualization)
 - [**Creating a Dataframe**](README.md#Creating-a-Dataframe)
 - [**Table Schema**](README.md#Table-Schema)
@@ -45,7 +45,7 @@ left join
 ```sql
 spark.sql(“select * from TblUnida”).display()
 ```
-###### [⏪](README.md#Índice)
+###### [⏪](README.md#Index)
 <p>  <br>
   </p>
 
@@ -57,7 +57,7 @@ Command to create and to visualize the Dataframe
 df = spark.sql(“select * from TblUnida”)
 display(df)
 ```
-###### [⏪](README.md#Índice)
+###### [⏪](README.md#Index)
 <p>  <br>
   </p>
 
@@ -68,7 +68,7 @@ Command to view the table schema from a Dataframe
 ```python
 df.printSchema()
 ```
-###### [⏪](README.md#Índice)
+###### [⏪](README.md#Index)
 <p>  <br>
   </p>
 
@@ -80,7 +80,7 @@ Command to create a table cache if necessary to view the table in a faster way
 %sql
 cache table TblUnida
 ```
-###### [⏪](README.md#Índice)
+###### [⏪](README.md#Index)
 <p>  <br>
   </p>
 
@@ -104,7 +104,7 @@ where
   DtContrato >= ‘{datavariavel}’
 """).createOrReplaceTempView("TblFiltered")
 ```
-###### [⏪](README.md#Índice)
+###### [⏪](README.md#Index)
 <p>  <br>
   </p>
 
