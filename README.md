@@ -17,6 +17,9 @@
 # Índice
 - [**Table Visualization**](README.md#Table-Visualization)
 - [**Creating a Dataframe**](README.md#Creating-a-Dataframe)
+- [**Table Schema**](README.md#Table-Schema)
+- [**Cache**](README.md#Cache)
+- [**Variable Date**](README.md#Variables-Date)
 
 ---
 
@@ -45,7 +48,64 @@ spark.sql(“select * from TblUnida”).display()
 ###### [⏪](README.md#Índice)
 <p>  <br>
   </p>
-  
-### Creating a Dataframe
 
+---
+
+### Creating a Dataframe
+Command to create and to visualize the Dataframe
+```sql
+df = spark.sql(“select * from TblUnida”)
+display(df)
+```
 ###### [⏪](README.md#Índice)
+<p>  <br>
+  </p>
+
+---
+
+### Table Schema
+Command to view the table schema from a Dataframe
+```python
+df.printSchema()
+```
+###### [⏪](README.md#Índice)
+<p>  <br>
+  </p>
+
+---
+
+### Cache
+Command to create a table cache if necessary to view the table in a faster way
+```sql
+%sql
+cache table TblUnida
+```
+###### [⏪](README.md#Índice)
+<p>  <br>
+  </p>
+
+---
+
+### Variable Date
+Command to create a variable date
+  - Example 1:
+```python
+datavariavel = spark.sql(“select to_date(date_trunc(‘MM’, add_months(current_date(), -10)))”).collect() [0][0]
+print(datavariavel)
+```
+  - How to use in the spark.sql command:
+```sql
+spark.sql(f"""
+select
+  *
+from
+  TblUnida
+where
+  DtContrato >= ‘{datavariavel}’
+""").createOrReplaceTempView("TblFiltered")
+```
+###### [⏪](README.md#Índice)
+<p>  <br>
+  </p>
+
+---
