@@ -20,6 +20,8 @@
 - [**Table Schema**](README.md#Table-Schema)
 - [**Cache**](README.md#Cache)
 - [**Variable Date**](README.md#Variable-Date)
+- [**Creating a Little Table**](README.md#Creating-a-Little-Table)
+- [**Special Commands in PySpark**](README.md#Special-Commands-in-PySpark)
 
 ---
 
@@ -27,7 +29,7 @@
 Visualization using SQL commands:
 ```sql
 %sql
-select * from Tabela1
+select * from Table1
 ```
 
 Visualization using spark.sql commnads:
@@ -36,14 +38,14 @@ spark.sql(“””
 select
   *
 from
-  Tabela1 a
+  Table1 a
 left join
-  Tabela2 b
-  on a.coluna = b.coluna
-“””).createOrReplaceTempView(“TblUnida”)
+  Table2 b
+  on a.column = b.column
+“””).createOrReplaceTempView(“TblUnion”)
 ```
 ```sql
-spark.sql(“select * from TblUnida”).display()
+spark.sql(“select * from TblUnion”).display()
 ```
 ###### [⏪](README.md#Index)
 <p>  <br>
@@ -54,7 +56,7 @@ spark.sql(“select * from TblUnida”).display()
 ### Creating a Dataframe
 Command to create and to visualize the Dataframe
 ```sql
-df = spark.sql(“select * from TblUnida”)
+df = spark.sql(“select * from TblUnion”)
 display(df)
 ```
 ###### [⏪](README.md#Index)
@@ -78,7 +80,7 @@ df.printSchema()
 Command to create a table cache if necessary to view the table in a faster way
 ```sql
 %sql
-cache table TblUnida
+cache table TblUnion
 ```
 ###### [⏪](README.md#Index)
 <p>  <br>
@@ -112,15 +114,50 @@ where
 ```python
 from datetime import datetime, timedelta
 from dateutil.relativedelta import relativedelta
-#Buscar o dia atual
-  dt_dia = datetime.now() - timedelta (days=1)
-#Buscar o primeiro dia do mês
-  primeiro_dia_mes = datetime.strptime (dt_dia.strftime (‘%Y-%m-01'), ‘%Y-%m-%d’)
-#Buscar último dia do mês
-  ultimo_dia_mes = (primeiro_dia_mes + relativedelta (months = 1)) - timedelta (days = 1)
-#Formatar qualquer uma das variáveis para o formato: YYYY-mm-dd
-  primeiro_dia_mês = primeiro_dia_mes.strftime(“%Y-%m-%d”)
+#Search for the current date
+  dt_day = datetime.now() - timedelta (days=1)
+#Searche for the first day of the month
+  first_day_month = datetime.strptime (dt_day.strftime (‘%Y-%m-01'), ‘%Y-%m-%d’)
+#Search for the last day of the month
+  last_day_month = (first_day_month + relativedelta (months = 1)) - timedelta (days = 1)
+#Format date like: YYYY-mm-dd
+  first_day_month = first_day_month.strftime(“%Y-%m-%d”)
 ```
+
+###### [⏪](README.md#Index)
+<p>  <br>
+  </p>
+
+---
+
+### Creating a Little Table
+Command in Python to create a support table if necessary
+```python
+data = [
+(1,"Park","Null"),
+(2,"Square","Null"),
+(3,"Block","Null"),
+(4,"Street","Null"),
+(5,"Mount","Null")
+]
+columns = ["IdType","Type","Qtd"]
+spark.createDataFrame(data,columns).createOrReplaceTempView("TbStreetTypes")
+```
+###### [⏪](README.md#Index)
+<p>  <br>
+  </p>
+
+---
+
+### Special Commands in PySpark
+Differents commands in PySpark compared to SQL Server
+
+|SQL Server | PySpark |
+|---| ---|
+|getdate() | current_date()|
+|convert() | cast() |
+|++ | concat() |
+
 
 ###### [⏪](README.md#Index)
 <p>  <br>
