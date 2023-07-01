@@ -19,7 +19,7 @@
 - [**Creating a Dataframe**](README.md#Creating-a-Dataframe)
 - [**Table Schema**](README.md#Table-Schema)
 - [**Cache**](README.md#Cache)
-- [**Variable Date**](README.md#Variables-Date)
+- [**Variable Date**](README.md#Variable-Date)
 
 ---
 
