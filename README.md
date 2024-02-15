@@ -164,9 +164,9 @@ Differents commands in PySpark compared to SQL Server
 
 ### Create Database
 Command to create a Database
-```PySpark
+```Python
 spark.sql("""
-CREATE DATAASE IF NOT EXISTS DBSANDBOX
+CREATE DATABASE IF NOT EXISTS DBSANDBOX
 """)
 ```
 ###### [⏪](README.md#Index)
