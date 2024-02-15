@@ -22,6 +22,8 @@
 - [**Special Commands in PySpark**](README.md#Special-Commands-in-PySpark)
 - [**Create Database**](README.md#Create-Database)
 - [**Reading a File**](README.md#Reading-a-File)
+- [**Cleaning Empty Fields**](README.md#Cleaning-Empty-Fields)
+- [**Create a Parquet File**](README.md#Create-a-Parquet-File)
 
 ---
 
@@ -175,13 +177,33 @@ CREATE DATABASE IF NOT EXISTS DBSANDBOX
   </p>
 
 ### Reading a File
-Command to read a file like .csv, .xlsx, etc.
+Command to read a file like .csv, .xlsx, etc. from the Bronze (raw) field
 ```Python
-spark.read.format('csv')
+df_bronze = spark.read.format('csv')
 .options(header='true', infe_schema='true', delimiter=',')
 .load( 'dbfs address' ex.: dbfs:/mnt/azuredatabricks/bronze/)
 ```
 ###### [⏪](README.md#Index)
 <p>  <br>
   </p>
+
+### Cleaning Empty Fields
+Command to clear empty fields in the columns creating a new table in the Silver field
+```Python
+df_silver = df_bronze.filter(df_bronze.CdProspect.isNotNull())
+```
+###### [⏪](README.md#Index)
+<p>  <br>
+  </p>
+
+### Create a Parquet File
+Command to create a Parquer File
+```Python
+df_silver.write.format('parquet').mode('overwrite').save('Address to Silver Field' ex.: dbfs:/mnt/azuredatabricks/silver/TbProdutos')
+```
+###### [⏪](README.md#Index)
+<p>  <br>
+  </p>
+
+  
 ---
