@@ -214,7 +214,7 @@ Command to create a Table in a specific Database
 # Use a specific Database
 spark.sql("USE DBSANDBOX")
 
-# Create a Table in this Database
+# Create a table in this Database
 spark.sql("""
 CREATE TABLE IF NOT EXISTS TbProdutos
 USING DELTA
