@@ -19,7 +19,7 @@
 - [**Cache**](README.md#Cache)
 - [**Variable Date**](README.md#Variable-Date)
 - [**Creating a Little Table**](README.md#Creating-a-Little-Table)
-- [**Special Commands in PySpark**](README.md#Special-Commands-in-PySpark)
+- [**Different Commands in PySpark**](README.md#Different-Commands-in-PySpark)
 - [**Create Database**](README.md#Create-Database)
 - [**Reading a File**](README.md#Reading-a-File)
 - [**Cleaning Empty Fields**](README.md#Cleaning-Empty-Fields)
@@ -152,8 +152,8 @@ spark.createDataFrame(data,columns).createOrReplaceTempView("TbStreetTypes")
 
 ---
 
-### Special Commands in PySpark
-Differents commands in PySpark compared to SQL Server
+### Different Commands in PySpark
+Different commands in PySpark compared to SQL Server
 
 |SQL Server | PySpark |
 |---| ---|
@@ -178,7 +178,7 @@ CREATE DATABASE IF NOT EXISTS DBSANDBOX
   </p>
 
 ### Reading a File
-Command to read a file like .csv, .xlsx, etc. from the Bronze (raw) field
+Command to read a file like .csv, .xlsx, etc. from the Bronze (raw) Field
 ```Python
 df_bronze = spark.read.format('csv')
 .options(header='true', infe_schema='true', delimiter=',')
@@ -189,7 +189,7 @@ df_bronze = spark.read.format('csv')
   </p>
 
 ### Cleaning Empty Fields
-Command to clear empty fields in the columns creating a new table in the Silver field
+Command to clear empty fields in the columns creating a new table in the Silver Field
 ```Python
 df_silver = df_bronze.filter(df_bronze.CdProspect.isNotNull())
 ```
@@ -198,7 +198,7 @@ df_silver = df_bronze.filter(df_bronze.CdProspect.isNotNull())
   </p>
 
 ### Create a Parquet File
-Command to create a Parquer File
+Command to create a Parquet File
 ```Python
 df_silver.write.format('parquet')
 .mode('overwrite')
