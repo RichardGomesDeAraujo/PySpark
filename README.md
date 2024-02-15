@@ -177,7 +177,9 @@ CREATE DATABASE IF NOT EXISTS DBSANDBOX
 ### Reading a File
 Command to read a file like .csv, .xlsx, etc.
 ```Python
-spark.read.format('csv').options(header='true', infe_schema='true', delimiter=',').load( 'dbfs address' ex.: dbfs:/mnt/azuredatabricks/bronze/)
+spark.read.format('csv')
+.options(header='true', infe_schema='true', delimiter=',')
+.load( 'dbfs address' ex.: dbfs:/mnt/azuredatabricks/bronze/)
 ```
 ###### [⏪](README.md#Index)
 <p>  <br>
