@@ -1,7 +1,5 @@
-<img src="Logo.png" align="Center" alt="Hands On Data" style="height: 100px; width:115px;"/>
+<img src="HOD.png" align="Center" alt="Hands On Data" style="height: 180px; width:260px;"/>
 
-<p>  <br>
-  </p>
   
 # Useful PySpark commands for queries and learning 
 <p>  <br>
