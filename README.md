@@ -24,6 +24,7 @@
 - [**Reading a File**](README.md#Reading-a-File)
 - [**Cleaning Empty Fields**](README.md#Cleaning-Empty-Fields)
 - [**Create a Parquet File**](README.md#Create-a-Parquet-File)
+- [**Create Table**](README.md#Create-Table)
 
 ---
 
@@ -207,5 +208,27 @@ df_silver.write.format('parquet')
 <p>  <br>
   </p>
 
+### Create Table
+Command to create a Table in a specific Database
+```Python
+# Use a specific Database
+spark.sql("USE DBSANDBOX")
+
+# Create a Table in this Database
+spark.sql("""
+CREATE TABLE IF NOT EXISTS TbProdutos
+USING DELTA
+LOCATION ('Address to Silver Field' ex.: /mnt/azuredatabricks/silver/TbProdutos')
+""") 
+
+# Reading this Table
+TbProdutos = spark.sql("""
+SELECT * FROM DBSANDBOX.TbProdutos
+""")
+display(TbProdutos)
+```
+###### [⏪](README.md#Index)
+<p>  <br>
+  </p>  
   
 ---
