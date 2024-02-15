@@ -199,7 +199,9 @@ df_silver = df_bronze.filter(df_bronze.CdProspect.isNotNull())
 ### Create a Parquet File
 Command to create a Parquer File
 ```Python
-df_silver.write.format('parquet').mode('overwrite').save('Address to Silver Field' ex.: dbfs:/mnt/azuredatabricks/silver/TbProdutos')
+df_silver.write.format('parquet')
+.mode('overwrite')
+.save('Address to Silver Field' ex.: dbfs:/mnt/azuredatabricks/silver/TbProdutos')
 ```
 ###### [⏪](README.md#Index)
 <p>  <br>
