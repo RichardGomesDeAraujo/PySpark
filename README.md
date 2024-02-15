@@ -209,7 +209,7 @@ df_silver.write.format('parquet')
   </p>
 
 ### Create Table
-Command to create a Table in a specific Database
+Command to create a table in a specific Database
 ```Python
 # Use a specific Database
 spark.sql("USE DBSANDBOX")
