@@ -20,6 +20,7 @@
 - [**Variable Date**](README.md#Variable-Date)
 - [**Creating a Little Table**](README.md#Creating-a-Little-Table)
 - [**Special Commands in PySpark**](README.md#Special-Commands-in-PySpark)
+- [**Create Database**](README.md#Create-Database)
 
 ---
 
@@ -160,5 +161,17 @@ Differents commands in PySpark compared to SQL Server
 ###### [⏪](README.md#Index)
 <p>  <br>
   </p>
+
+### Create Database
+Command to create a Database
+```PySpark
+spark.sql("""
+CREATE DATAASE IF NOT EXISTS DBSANDBOX
+""")
+```
+###### [⏪](README.md#Index)
+<p>  <br>
+  </p>
+
 
 ---
