@@ -21,6 +21,7 @@
 - [**Creating a Little Table**](README.md#Creating-a-Little-Table)
 - [**Special Commands in PySpark**](README.md#Special-Commands-in-PySpark)
 - [**Create Database**](README.md#Create-Database)
+- [**Reading a File**](README.md#Reading-a-File)
 
 ---
 
@@ -173,5 +174,12 @@ CREATE DATABASE IF NOT EXISTS DBSANDBOX
 <p>  <br>
   </p>
 
-
+### Reading a File
+Command to read a file like .csv, .xlsx, etc.
+```Python
+spark.read.format('csv').options(header='true', infe_schema='true', delimiter=',').load( 'dbfs address' ex.: dbfs:/mnt/azuredatabricks/bronze/)
+```
+###### [⏪](README.md#Index)
+<p>  <br>
+  </p>
 ---
