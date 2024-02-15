@@ -180,9 +180,11 @@ CREATE DATABASE IF NOT EXISTS DBSANDBOX
 ### Reading a File
 Command to read a file like .csv, .xlsx, etc. from the Bronze (raw) Field
 ```Python
-df_bronze = spark.read.format('csv')
+df_bronze = (
+spark.read.format('csv')
 .options(header='true', infe_schema='true', delimiter=',')
 .load( 'dbfs address' ex.: dbfs:/mnt/azuredatabricks/bronze/)
+)
 ```
 ###### [⏪](README.md#Index)
 <p>  <br>
@@ -200,8 +202,8 @@ df_silver = df_bronze.filter(df_bronze.CdProspect.isNotNull())
 ### Create a Parquet File
 Command to create a Parquet File
 ```Python
-df_silver.write.format('parquet')
-.mode('overwrite')
+df_silver.write.format('parquet')\
+.mode('overwrite')\
 .save('Address to Silver Field' ex.: dbfs:/mnt/azuredatabricks/silver/TbProdutos')
 ```
 ###### [⏪](README.md#Index)
